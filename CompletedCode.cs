@@ -9,10 +9,8 @@ namespace Prog120_W24_L4_012324
 {
     internal static class CompletedCode
     {
-
         public static void Run()
         {
-
         start:
             Console.Clear(); // Clear the console for a cleaner menu
 
@@ -41,9 +39,13 @@ namespace Prog120_W24_L4_012324
                 Console.Write("Enter the end number: ");
                 int end = int.Parse(Console.ReadLine());
 
-                for (int i = start; i <= end; i++)
+                int current = start;
+            display_numbers_loop:
+                if (current <= end)
                 {
-                    Console.Write(i + " ");
+                    Console.Write(current + " ");
+                    current++;
+                    goto display_numbers_loop;
                 }
 
                 Console.WriteLine("\nPress any key to continue...");
@@ -59,9 +61,13 @@ namespace Prog120_W24_L4_012324
                 int end = int.Parse(Console.ReadLine());
 
                 int sum = 0;
-                for (int i = start; i <= end; i++)
+                int current = start;
+            sum_numbers_loop:
+                if (current <= end)
                 {
-                    sum += i;
+                    sum += current;
+                    current++;
+                    goto sum_numbers_loop;
                 }
 
                 Console.WriteLine("Sum: " + sum);
@@ -79,10 +85,14 @@ namespace Prog120_W24_L4_012324
 
                 double average = 0;
                 int count = 0;
-                for (int i = start; i <= end; i++)
+                int current = start;
+            average_numbers_loop:
+                if (current <= end)
                 {
-                    average += i;
+                    average += current;
                     count++;
+                    current++;
+                    goto average_numbers_loop;
                 }
 
                 average /= count;
@@ -104,8 +114,9 @@ namespace Prog120_W24_L4_012324
                 goto start; // Return to the start of the menu
             }
 
-        }
+        } // main
 
 
-    }
-}
+    } // class
+
+} // namespace
